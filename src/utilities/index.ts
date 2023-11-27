@@ -179,7 +179,7 @@ export const parseFormData = async <T extends any>(
   request: Request,
   preserveStringified = false,
 ): Promise<T> => {
-  const formData = await request.formData();
+  const formData = await request.clone().formData();
   return generateFormData(formData, preserveStringified);
 };
 /**
